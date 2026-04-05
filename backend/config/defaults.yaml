@@ -1,0 +1,53 @@
+# DCF Assumptions — Reliance Industries Defaults
+dcf:
+  base_fcf_crore: 50470
+  phase1_growth_rate: 0.14
+  phase1_years: 5
+  phase2_growth_rate: 0.09
+  phase2_years: 5
+  terminal_growth_rate: 0.04
+
+wacc:
+  risk_free_rate: 0.072
+  beta: 1.05
+  equity_risk_premium: 0.070
+  cost_of_debt_pretax: 0.078
+  tax_rate: 0.25
+
+thresholds:
+  gross_margin:
+    warning: 0.20
+    critical: 0.10
+    direction: below
+  net_margin:
+    warning: 0.05
+    critical: 0.02
+    direction: below
+  roe:
+    warning: 0.08
+    critical: 0.03
+    direction: below
+  roa:
+    warning: 0.03
+    critical: 0.01
+    direction: below
+  current_ratio:
+    warning: 1.2
+    critical: 0.8
+    direction: below
+  quick_ratio:
+    warning: 0.8
+    critical: 0.5
+    direction: below
+  debt_to_equity:
+    warning: 1.0
+    critical: 2.0
+    direction: above
+  interest_coverage:
+    warning: 3.0
+    critical: 1.5
+    direction: below
+  asset_turnover:
+    warning: 0.3
+    critical: 0.15
+    direction: below

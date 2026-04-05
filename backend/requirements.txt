@@ -1,0 +1,11 @@
+fastapi==0.115.0
+uvicorn==0.30.0
+pydantic==2.9.0
+yfinance==0.2.43
+pandas==2.2.2
+numpy==2.1.0
+pyyaml==6.0.2
+google-generativeai==0.8.0
+python-multipart==0.0.9
+groq>=0.9.0
+python-dotenv>=1.0.0
