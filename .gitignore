@@ -18,7 +18,14 @@ __pycache__/
 venv/
 env/
 .venv/
-.env
+
+# Scratch / dev testing
+scratch/
+uvicorn_error.txt
+
+# Gemini / AI agent
+.gemini/
+.agents/
 
 # MacOS
 .DS_Store

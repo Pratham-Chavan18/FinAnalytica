@@ -15,7 +15,7 @@ export default function AIAssistant({ data }) {
   ];
 
   const [messages, setMessages] = useState([
-    { role: 'system', content: `🤖 FinAnalytica AI is ready. Powered by Groq (LLaMA 3.3 70B). Analyzing ${companyName} in ${curr} (${currSym.trim()}). Ask any financial question below!` },
+    { role: 'system', content: `🤖 FinAnalytica AI is ready. Powered by NVIDIA NIM (LLaMA 3.3 70B). Analyzing ${companyName} in ${curr} (${currSym.trim()}). Ask any financial question below!` },
   ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
@@ -66,7 +66,7 @@ export default function AIAssistant({ data }) {
       <div className="ai-header-card">
         <h2>🤖 AI Financial Assistant</h2>
         <p>
-          Powered by Groq (LLaMA 3.3 70B) — analyzing <strong>{companyName}</strong> in {curr} ({currSym.trim()})
+          Powered by NVIDIA NIM (LLaMA 3.3 70B) — analyzing <strong>{companyName}</strong> in {curr} ({currSym.trim()})
         </p>
         <div className="prompt-templates">
           {TEMPLATES.map((t, i) => (

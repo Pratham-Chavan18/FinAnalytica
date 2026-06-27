@@ -1,6 +1,6 @@
 """
 FinAnalytica — AI Financial Assistant Router
-Uses Groq API (LLaMA 3) for financial analysis chat.
+Uses NVIDIA NIM API for financial analysis chat.
 """
 
 from fastapi import APIRouter, HTTPException
@@ -13,7 +13,7 @@ load_dotenv()
 
 router = APIRouter(prefix="/api", tags=["ai"])
 
-GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
+NVIDIA_API_KEY = os.getenv("NVIDIA_API_KEY", "")
 
 
 class ChatRequest(BaseModel):
@@ -73,19 +73,22 @@ def _build_context_text(context: dict) -> str:
 
 @router.post("/ai/chat")
 async def ai_chat(req: ChatRequest):
-    """Chat with the AI Financial Assistant using Groq."""
+    """Chat with the AI Financial Assistant using NVIDIA NIM API."""
     try:
-        from groq import Groq
+        from openai import OpenAI
 
         # Use server-side key from .env, or client-provided override
-        key = req.api_key if req.api_key else GROQ_API_KEY
+        key = req.api_key if req.api_key else NVIDIA_API_KEY
         if not key:
             raise HTTPException(
                 status_code=400,
-                detail="No API key configured. Set GROQ_API_KEY in .env or provide one in the UI."
+                detail="No API key configured. Set NVIDIA_API_KEY in .env or provide one in the UI."
             )
 
-        client = Groq(api_key=key)
+        client = OpenAI(
+            base_url="https://integrate.api.nvidia.com/v1",
+            api_key=key,
+        )
 
         # Build messages
         messages = [{"role": "system", "content": SYSTEM_PROMPT}]
@@ -99,7 +102,7 @@ async def ai_chat(req: ChatRequest):
         messages.append({"role": "user", "content": req.message})
 
         response = client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
+            model="meta/llama-3.3-70b-instruct",
             messages=messages,
             temperature=0.5,
             max_tokens=2048,
@@ -108,7 +111,7 @@ async def ai_chat(req: ChatRequest):
         return {"response": response.choices[0].message.content}
 
     except ImportError:
-        raise HTTPException(status_code=500, detail="groq package not installed. Run: pip install groq")
+        raise HTTPException(status_code=500, detail="openai package not installed. Run: pip install openai")
     except HTTPException:
         raise
     except Exception as e:

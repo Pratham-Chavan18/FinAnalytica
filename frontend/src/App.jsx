@@ -200,7 +200,7 @@ function AuthGate() {
           color: 'var(--text-muted)',
           fontSize: '0.7rem',
         }}>
-          Powered by yFinance · Groq AI · Clerk Auth
+          Powered by yFinance · NVIDIA NIM AI · Clerk Auth
         </p>
       </div>
     </div>
