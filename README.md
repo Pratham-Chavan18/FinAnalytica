@@ -157,7 +157,6 @@ source backend/.venv/bin/activate
 
 # Install Python dependencies
 pip install -r backend/requirements.txt
-pip install openai
 ```
 
 ### 4. Frontend Setup
@@ -175,8 +174,14 @@ Open **two separate terminals** from the project root directory:
 
 **Terminal 1 — Start the Backend API Server:**
 
+*Windows (PowerShell / CMD):*
 ```bash
 .\backend\.venv\Scripts\python.exe -m uvicorn backend.main:app --port 8001 --reload
+```
+
+*macOS / Linux:*
+```bash
+backend/.venv/bin/python -m uvicorn backend.main:app --port 8001 --reload
 ```
 
 **Terminal 2 — Start the Frontend Dev Server:**
