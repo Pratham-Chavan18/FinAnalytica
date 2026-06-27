@@ -1,6 +1,6 @@
 # FinAnalytica
 
-A full-stack **Financial Statement Analysis & Valuation Platform** built with **FastAPI** and **React**. Analyze any publicly listed company by its stock ticker — get 30+ financial ratios, DuPont decomposition, DCF valuation, sensitivity analysis, and AI-powered insights, all in one place.
+A full-stack **Financial Statement Analysis & Valuation Platform** built with **FastAPI** and **React**. Analyze any publicly listed company by its stock ticker get 30+ financial ratios, DuPont decomposition, DCF valuation, sensitivity analysis, and AI-powered insights, all in one place.
 
 ---
 
